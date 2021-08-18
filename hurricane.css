@@ -1,0 +1,49 @@
+.th-data{
+    width:100%;
+    font-family: 'Lato', sans-serif;
+    padding:20px;
+    padding-left:30px;
+    padding-right:30px;
+    background-color:white;
+    margin-bottom:20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  
+  .th-title{
+    font-size: 25px;
+    line-height:30px;
+    color:black;
+  }
+  
+  .th-date{
+    color:rgb(65,65,65);
+    padding-bottom:10px;
+  }
+  
+  .th-description{
+    font-size:15px;
+  }
+
+  <style>
+@media only screen and (max-width: 767px){
+.th-data{
+  padding: 10px;
+  padding-top:20px;
+  padding-bottom: 20px;
+}
+
+.th-title{
+  font-size: 18px;
+}
+
+.th-date{
+  font-size:12px;
+}
+
+.th-description{
+  font-size:14px;
+}
+}
+
+</style>
