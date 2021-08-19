@@ -33,15 +33,25 @@ function get_rss_data() {
 function track_hurricane($atts, $content = '') {
     global $body;
     $build_output_string = '';
+    $graphics_output_string='';
     get_rss_data();
     $xml = simplexml_load_string($body);
     foreach($xml->channel->item as $item){
-        $build_output_string.="<div class='th-data'>";
-        $build_output_string.="<div class='th-title'>".$item->title."</div>";
-        $build_output_string.="<div class='th-date'>".$item->pubDate."</div>";
-        $build_output_string.="<div class='th-description'>".$item->description."</div>";
-        $build_output_string .= "</div>";
+        if(strpos($item->title ,'Graphics')){
+            $graphics_output_string.="<div class='th-data'>";
+            $graphics_output_string.="<div class='th-title'>".$item->title."</div>";
+            $graphics_output_string.="<div class='th-date'>".$item->pubDate."</div>";
+            $graphics_output_string.="<div class='th-description'>".$item->description."</div>";
+            $graphics_output_string .= "</div>";
+        }else{
+            $build_output_string.="<div class='th-data'>";
+            $build_output_string.="<div class='th-title'>".$item->title."</div>";
+            $build_output_string.="<div class='th-date'>".$item->pubDate."</div>";
+            $build_output_string.="<div class='th-description'>".$item->description."</div>";
+            $build_output_string .= "</div>";
+        }
     }
+    $build_output_string=$graphics_output_string.$build_output_string;
     return do_shortcode($build_output_string);
 }
     
